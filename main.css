@@ -1,0 +1,92 @@
+.loading:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #333333;
+  z-index: 9999999;
+  opacity: 0.75;
+}
+.loading .loader {
+  position: absolute;
+  z-index: 99999999;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  width: 100px;
+  height: 100px;
+  animation-duration: 1.25s;
+}
+.loading .loader:before {
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  left: 6px;
+  animation-duration: 1.5s;
+}
+.loading .loader:after {
+  top: 14px;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  animation-duration: 1s;
+}
+.loading .loader,
+.loading .loader:after,
+.loading .loader:before {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  border-top-color: lightblue;
+  animation-name: loader;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.loading .loader:after,
+.loading .loader:before {
+  content: "";
+  position: absolute;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+html,
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: #eaeaea;
+}
+
+.leave,
+.arrive {
+  width: 250px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.arrive {
+  margin-top: 10px;
+}
+
+.ferry-info {
+  display: flex;
+  align-items: center;
+}
+.ferry-info svg {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
