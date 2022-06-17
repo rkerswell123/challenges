@@ -4,6 +4,11 @@
 // import { array } from "./api.js";
 import { clock, watch, person, car, lorry, pin } from './icons.js';
 
+// Awaait Function
+const wait = (amount = 0) => {
+  new Promise((resolve) => setTimeout(resolve, amount));
+};
+
 // const url = array;
 const url = 'https://www.bcferriesapi.ca/api/';
 
@@ -33,41 +38,57 @@ const arriveHTML = '<option selected disabled>Arrive where?</option>';
 
 $(leaveHTML).appendTo('.leave');
 
-$.getJSON(url, (data) => {
+// $.getJSON(url, (data) => {
+//   engine(data);
+// });
+
+// Engine
+
+async function engine() {
 
   // Remove loader once data has loaded
-  $('.loading').delay(250).fadeOut();
-  $('.leave').delay(500).fadeIn();
+  console.log('start');
+  // $('.loading').delay(250).fadeOut();
+  await wait(2000);
+  console.log('middle');
+  // $('.leave').delay(500).fadeIn();
+  await wait(4000);
+  console.log('end');
 
-  $.each(data.schedule, (key, val) => {
-    $(`<option value="${key}">${departure[key]}</option>`).appendTo('.leave');
-  });
+  // $.each(data.schedule, (key, val) => {
+  //   $(`<option value="${key}">${departure[key]}</option>`).appendTo('.leave');
+  // });
 
   // On change of leave select
-  $('.leave').on('change', function() {
-    $('.arrive').fadeIn().find('option').remove();
-    $(arriveHTML).appendTo('.arrive');
+  // $('.leave').on('change', function() {
+  //   showElement('.arrive', 'option');
+  //   $(arriveHTML).appendTo('.arrive');
 
-    $.each(data.schedule[$(this).val()], (key, val) => {
-      $(`<option value="${key}">${departure[key]}</option>`).appendTo('.arrive');
-    });
-  });
+  //   $.each(data.schedule[$(this).val()], (key, val) => {
+  //     $(`<option value="${key}">${departure[key]}</option>`).appendTo('.arrive');
+  //   });
+  // });
 
   // On change of arrive select
-  $('.arrive').on('change', function() {
-    const arriveValue = $('.leave').val();
-    const leaveValue = $(this).val();
-    const sailingData = data.schedule[arriveValue][leaveValue];
+  // $('.arrive').on('change', function() {
+  //   showElement('.results', '.ferry');
+  //   $('.leave, .arrive').fadeOut();
+  //   $('.results').fadeIn();
+  //   // $('.arrive').fadeOut();
+  //   const arriveValue = $('.leave').val();
+  //   const leaveValue = $(this).val();
+  //   const sailingData = data.schedule[arriveValue][leaveValue];
 
-    $.each(sailingData, (key, val) => {
-      const duration = val;
-      $.each(sailingData.sailings, (key, val) => {
-        results(val, duration);
-      });
-    });
-  });
+  //   $.each(sailingData, (key, val) => {
+  //     const duration = val;
+  //     $.each(sailingData.sailings, (key, val) => {
+  //       results(val, duration);
+  //     });
+  //   });
+  // });
+}
 
-});
+engine();
 
 
 // Populate body with results
@@ -86,5 +107,18 @@ function results(val, duration) {
     </div>
   `;
 
-  $('body').append(tile);
+  $('.results').append(tile);
 }
+
+// Fade In Object
+
+function showElement(a, b) {
+  $(a).fadeIn().find(b).remove();
+}
+
+// Reset Results
+
+// function resultsReset() {
+//   $('.results').fadeOut().delay(400).find('.ferry').remove();
+// }
+
