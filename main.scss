@@ -1,22 +1,16 @@
+// Global Variables
+
+$border-radius: 10px;
+$shadow: 0 0 5px 0 rgba(0,0,0,.2);
+$red: #f2243f;
+$white: #ffffff;
+$grey: #eaeaea;
+$green: #00b17e;
+
 // Animated Loader
 
-.loading {
-	// z-index: 0;
-	// margin: 0px;
-
-	&:after {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: #333333;
-		z-index: 9999999;
-		opacity: .75;
-		// transition: 0.4s;
-	}
-
+.initLoading,
+.resultsLoading {
 	.loader {
 		position: absolute;
 		z-index: 99999999;
@@ -51,7 +45,7 @@
 	.loader:before {
 		border: 3px solid transparent;
 		border-radius: 50%;
-		border-top-color: lightblue;
+		border-top-color: $red;
 		animation-name: loader;
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
@@ -71,43 +65,98 @@
 
 
 
-
-
-
-
-
 html,
 body {
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: #eaeaea;
+  background-color: $grey;
 }
 
-.leave,
-.arrive {
-  width: 250px;
-  height: 60px;
-  margin: 0 auto;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
-  text-align: center;
+.selection {
+	height: 200px;
+
+	.leave,
+	.arrive {
+		width: 250px;
+		height: 60px;
+		border-radius: $border-radius;
+		border: none;
+		box-shadow: $shadow;
+		text-align: center;
+	}
+
+	.arrive {
+		margin-left: 20px;
+	}
 }
 
-.arrive {
-  margin-top: 10px;
-}
+// Results
 
-.ferry {
-  &-info {
-    display: flex;
-    align-items: center;
+.results {
+	align-content: flex-start;
+	min-height: calc(100vh - 200px);
+	overflow: hidden auto;
+	position: relative;
+	padding-bottom: 20px;
+	
+	.ferry {
+		&-block {
+			display: flex;
+			border-radius: $border-radius;
+			box-shadow: $shadow;
+			background-color: $white;
+			padding: 0 0 0 20px;
+			margin-top: 20px;
 
-    svg {
-      margin-right: 5px;
-      width: 20px;
-      height: 20px;
-    }
-  }
+			.data {
+				display: flex;
+				align-items: center;
+				margin: 0 20px 0 0;
+				font-weight: 600;
+	
+				svg {
+					margin-right: 5px;
+					width: 20px;
+					height: 20px;
+				}
+	
+				&.title {
+					margin: 0 0 10px 0;
+				}
+			}
+		}
+
+		h2 {
+			font-size: 1.5em;
+			font-weight: 400;
+			margin-bottom: 10px;
+		}
+
+		h3 {
+			font-size: 1em;
+			font-weight: 400;
+		}
+
+		&-info,
+		&-data {
+			display: flex;
+		}
+
+		&-info {
+			flex-direction: column;
+			padding: 20px 0;
+		}
+
+		.time {
+			justify-content: center;
+			width: 130px;
+			color: $white;
+			margin: 0 0 0 auto;
+			padding: 20px;
+			background-color: $green;
+			border-radius: 0 $border-radius $border-radius 0;
+		}
+
+	}
 }

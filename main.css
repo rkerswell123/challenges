@@ -1,15 +1,5 @@
-.loading:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #333333;
-  z-index: 9999999;
-  opacity: 0.75;
-}
-.loading .loader {
+.initLoading .loader,
+.resultsLoading .loader {
   position: absolute;
   z-index: 99999999;
   top: calc(50% - 50px);
@@ -20,32 +10,39 @@
   height: 100px;
   animation-duration: 1.25s;
 }
-.loading .loader:before {
+.initLoading .loader:before,
+.resultsLoading .loader:before {
   top: 6px;
   right: 6px;
   bottom: 6px;
   left: 6px;
   animation-duration: 1.5s;
 }
-.loading .loader:after {
+.initLoading .loader:after,
+.resultsLoading .loader:after {
   top: 14px;
   right: 14px;
   bottom: 14px;
   left: 14px;
   animation-duration: 1s;
 }
-.loading .loader,
-.loading .loader:after,
-.loading .loader:before {
+.initLoading .loader,
+.initLoading .loader:after,
+.initLoading .loader:before,
+.resultsLoading .loader,
+.resultsLoading .loader:after,
+.resultsLoading .loader:before {
   border: 3px solid transparent;
   border-radius: 50%;
-  border-top-color: lightblue;
+  border-top-color: #f2243f;
   animation-name: loader;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-.loading .loader:after,
-.loading .loader:before {
+.initLoading .loader:after,
+.initLoading .loader:before,
+.resultsLoading .loader:after,
+.resultsLoading .loader:before {
   content: "";
   position: absolute;
 }
@@ -66,27 +63,73 @@ body {
   background-color: #eaeaea;
 }
 
-.leave,
-.arrive {
+.selection {
+  height: 200px;
+}
+.selection .leave,
+.selection .arrive {
   width: 250px;
   height: 60px;
-  margin: 0 auto;
   border-radius: 10px;
   border: none;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-
-.arrive {
-  margin-top: 10px;
+.selection .arrive {
+  margin-left: 20px;
 }
 
-.ferry-info {
+.results {
+  align-content: flex-start;
+  min-height: calc(100vh - 200px);
+  overflow: hidden auto;
+  position: relative;
+  padding-bottom: 20px;
+}
+.results .ferry-block {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  padding: 0 0 0 20px;
+  margin-top: 20px;
+}
+.results .ferry-block .data {
   display: flex;
   align-items: center;
+  margin: 0 20px 0 0;
+  font-weight: 600;
 }
-.ferry-info svg {
+.results .ferry-block .data svg {
   margin-right: 5px;
   width: 20px;
   height: 20px;
+}
+.results .ferry-block .data.title {
+  margin: 0 0 10px 0;
+}
+.results .ferry h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.results .ferry h3 {
+  font-size: 1em;
+  font-weight: 400;
+}
+.results .ferry-info, .results .ferry-data {
+  display: flex;
+}
+.results .ferry-info {
+  flex-direction: column;
+  padding: 20px 0;
+}
+.results .ferry .time {
+  justify-content: center;
+  width: 130px;
+  color: #ffffff;
+  margin: 0 0 0 auto;
+  padding: 20px;
+  background-color: #00b17e;
+  border-radius: 0 10px 10px 0;
 }
