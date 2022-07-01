@@ -88,6 +88,11 @@ body {
 
 	.arrive {
 		margin-left: 20px;
+
+		// Vanilla JS fix to overwrite the function setting the opacity on load
+		&[disabled] {
+			opacity: 0.7 !important;
+		}
 	}
 }
 

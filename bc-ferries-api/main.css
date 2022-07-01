@@ -78,6 +78,9 @@ body {
 .selection .arrive {
   margin-left: 20px;
 }
+.selection .arrive[disabled] {
+  opacity: 0.7 !important;
+}
 
 .results {
   align-content: flex-start;

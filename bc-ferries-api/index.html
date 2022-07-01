@@ -22,39 +22,8 @@
     <div class="row align-items-center justify-content-center results">
       <span class="resultsLoading" style="display: none;"><span class="loader"></span></span>
     </div>
-    <p class="tester" style="display: none;">testing string</p>
   </div>
 
   <script type="module" src="main.js"></script>
-
-  <script>
-    function fadeOutter(el) {
-      el.style.opacity = 1;
-      (function fade() {
-        if ((el.style.opacity -= .1) < 0) el.style.display = "none";
-        else requestAnimationFrame(fade);
-      })();
-    };
-
-    function fadeInner(el, display) {
-      el.style.opacity = 0;
-      el.style.display = display || "block";
-      (function fade() {
-        let val = parseFloat(el.style.opacity);
-        if (!((val += .1) > 1)) {
-          el.style.opacity = val;
-          requestAnimationFrame(fade);
-        }
-      })();
-    };
-
-    const test = document.querySelector('.tester');
-    setTimeout(() => {
-      fadeInner(test);
-    }, 2000);
-    setTimeout(() => {
-      fadeOutter(test);
-    }, 4000);
-  </script>
 </body>
 </html>
