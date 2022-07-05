@@ -55,6 +55,13 @@
   }
 }
 
+.logo {
+  width: 100%;
+}
+.logo svg {
+  max-width: 80px;
+}
+
 html,
 body {
   display: flex;
@@ -65,6 +72,7 @@ body {
 
 .selection {
   height: 200px;
+  transition: 0.4s;
 }
 .selection .leave,
 .selection .arrive {
@@ -84,7 +92,7 @@ body {
 
 .results {
   align-content: flex-start;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px - 30px);
   overflow: hidden auto;
   position: relative;
   padding-bottom: 20px;

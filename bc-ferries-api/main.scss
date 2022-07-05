@@ -63,6 +63,14 @@ $green: #00b17e;
 	}
 }
 
+.logo {
+	width: 100%;
+	
+	svg {
+		max-width: 80px;
+	}
+}
+
 
 
 html,
@@ -75,6 +83,7 @@ body {
 
 .selection {
 	height: 200px;
+	transition: .4s;
 
 	.leave,
 	.arrive {
@@ -100,7 +109,7 @@ body {
 
 .results {
 	align-content: flex-start;
-	min-height: calc(100vh - 200px);
+	min-height: calc(100vh - 200px - 30px);
 	overflow: hidden auto;
 	position: relative;
 	padding-bottom: 20px;

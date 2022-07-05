@@ -9,17 +9,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="start">
 
   <!-- Initial Page Loader -->
   <span class="initLoading"><span class="loader"></span></span>
 
   <div class="container">
-    <div class="row align-items-center justify-content-center selection">
+    <div class="row justify-content-center selection">
+      <div class="logo text-center" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve"><g><path d="M233.7,232.6v176.8L500,322.1l266.3,87.4V232.6H233.7z M142.2,808.9L58.9,513.5c-9.7-27.8,0-46.5,29.1-56.2l56.2-18.7v-206c0-23.6,9-44.4,27-62.4c18-18,38.8-27,62.4-27h133.2V10h266.3v133.2h133.2c23.6,0,44.4,9,62.4,27c18,18,27,38.8,27,62.4v206l56.2,18.7c29.1,9.7,38.8,28.4,29.1,56.2l-83.2,295.4h-2.1c-68,0-127.6-29.1-178.9-87.4c-51.3,58.3-110.3,87.4-176.8,87.4c-66.6,0-125.5-29.1-176.8-87.4c-51.3,58.3-110.9,87.4-178.9,87.4H142.2z M855.8,898.4h87.4v89.5h-87.4c-62.4,0-122-14.6-178.9-43.7c-117.9,61-235.8,61-353.7,0c-56.9,29.1-116.5,43.7-178.9,43.7H56.9v-89.5h87.4c63.8,0,123.4-19.4,178.9-58.3c54.1,37.5,113,56.2,176.8,56.2c63.8,0,122.7-18.7,176.8-56.2C732.3,879,792,898.4,855.8,898.4L855.8,898.4z"/></g></svg>
+      </div>
       <select class="leave" style="display: none;"></select>
       <select class="arrive" style="display: none;" disabled></select>
     </div>
-    <div class="row align-items-center justify-content-center results">
+    <div class="row align-items-center justify-content-center results" style="display: none;">
       <span class="resultsLoading" style="display: none;"><span class="loader"></span></span>
     </div>
   </div>
