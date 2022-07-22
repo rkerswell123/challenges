@@ -1,19 +1,7 @@
 // Imports
 import { clock, watch, person, car, lorry } from './icons.js';
 
-
-
-
-// Switch between Vanilla JS & jQuery versions
 const url = 'https://www.bcferriesapi.ca/api/';
-
-apiJquery(url);
-apiVanilla(url);
-
-
-
-
-
 const departure = {
   TSA: 'Tsawwassen',
   SWB: 'Swartz Bay',
@@ -26,12 +14,15 @@ const departure = {
   BOW: 'Bowen Island',
 };
 
+// Switch between Vanilla JS & jQuery versions
+apiJquery();
+// apiVanilla();
+
 
 
 
 // jQuery Version
-
-function apiJquery(url) {
+function apiJquery() {
 
   const leaveHTML = `<option selected disabled>Leave from where?</option>`;
   const arriveHTML = `<option selected disabled>Arrive where?</option>`;
@@ -144,8 +135,7 @@ function apiJquery(url) {
 
 
 // Vanilla JS Version
-
-function apiVanilla(url) {
+function apiVanilla() {
 
   function leaveOptionSetter() {
     const leaveOption = document.createElement('option');
