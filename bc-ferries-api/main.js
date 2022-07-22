@@ -5,14 +5,14 @@ import { clock, watch, person, car, lorry } from './icons.js';
 
 
 // Switch between Vanilla JS & jQuery versions
-
-// apiJquery();
-apiVanilla();
-
-
-
-
 const url = 'https://www.bcferriesapi.ca/api/';
+
+apiJquery(url);
+apiVanilla(url);
+
+
+
+
 
 const departure = {
   TSA: 'Tsawwassen',
@@ -31,7 +31,7 @@ const departure = {
 
 // jQuery Version
 
-function apiJquery() {
+function apiJquery(url) {
 
   const leaveHTML = `<option selected disabled>Leave from where?</option>`;
   const arriveHTML = `<option selected disabled>Arrive where?</option>`;
@@ -145,7 +145,7 @@ function apiJquery() {
 
 // Vanilla JS Version
 
-function apiVanilla() {
+function apiVanilla(url) {
 
   function leaveOptionSetter() {
     const leaveOption = document.createElement('option');
